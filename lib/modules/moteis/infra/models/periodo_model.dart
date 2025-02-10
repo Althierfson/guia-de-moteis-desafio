@@ -1,15 +1,16 @@
+import 'package:equatable/equatable.dart';
 import 'package:guia_moteis_desafio/modules/moteis/domain/entities/periodo.dart';
 import 'package:guia_moteis_desafio/modules/moteis/infra/models/desconto_model.dart';
 
-class PeriodoModel {
-  String tempoFormatado;
-  String tempo;
-  double valor;
-  double valorTotal;
-  bool temCortesia;
-  DescontoModel? desconto;
+class PeriodoModel extends Equatable {
+  final String tempoFormatado;
+  final String tempo;
+  final double valor;
+  final double valorTotal;
+  final bool temCortesia;
+  final DescontoModel? desconto;
 
-  PeriodoModel({
+  const PeriodoModel({
     required this.tempoFormatado,
     required this.tempo,
     required this.valor,
@@ -52,4 +53,7 @@ class PeriodoModel {
         temCortesia: temCortesia,
         desconto: desconto?.toEntity(),
       );
+
+  @override
+  List<Object?> get props => [tempoFormatado, tempo, valor, valorTotal, temCortesia, desconto];
 }

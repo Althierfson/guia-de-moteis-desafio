@@ -18,8 +18,8 @@ class GonowModule extends Module {
     i.addLazySingleton<MoteisRemoteDatasource>(() => MoteisRemoteDatasourceImpl(client: i.get()));
     i.addLazySingleton<MoteisLocalDatasource>(() => MoteisLocalDatasourceImpl(database: i.get()));
 
-    i.addLazySingleton<MoteisRepository>(() => MoteisRepositoryImpl(
-        localDatasource: i.get(), remoteDatasource: i.get(), networkInfo: i.get()));
+    i.addLazySingleton<MoteisRepository>(
+        () => MoteisRepositoryImpl(remoteDatasource: i.get(), networkInfo: i.get()));
 
     i.addLazySingleton(() => FetchMoteisUsecase(repositories: i.get()));
 

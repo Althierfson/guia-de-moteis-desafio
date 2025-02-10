@@ -1,17 +1,18 @@
+import 'package:equatable/equatable.dart';
 import 'package:guia_moteis_desafio/modules/moteis/domain/entities/motel.dart';
 import 'package:guia_moteis_desafio/modules/moteis/infra/models/suites_model.dart';
 
-class MotelModel {
-  String fantasia;
-  String logo;
-  String bairro;
-  double distancia;
-  int qtdFavoritos;
-  int qtdAvaliacoes;
-  double media;
-  List<SuiteModel> suites;
+class MotelModel extends Equatable {
+  final String fantasia;
+  final String logo;
+  final String bairro;
+  final double distancia;
+  final int qtdFavoritos;
+  final int qtdAvaliacoes;
+  final double media;
+  final List<SuiteModel> suites;
 
-  MotelModel({
+  const MotelModel({
     required this.fantasia,
     required this.logo,
     required this.bairro,
@@ -22,7 +23,6 @@ class MotelModel {
     required this.suites,
   });
 
-  // Conversão do JSON para Model
   factory MotelModel.fromJson(Map<String, dynamic> json) => MotelModel(
         fantasia: json["fantasia"],
         logo: json["logo"],
@@ -34,7 +34,6 @@ class MotelModel {
         suites: List<SuiteModel>.from(json["suites"].map((x) => SuiteModel.fromJson(x))),
       );
 
-  // Conversão do Model para JSON
   Map<String, dynamic> toJson() => {
         "fantasia": fantasia,
         "logo": logo,
@@ -46,7 +45,6 @@ class MotelModel {
         "suites": List<dynamic>.from(suites.map((x) => x.toJson())),
       };
 
-  // Conversão de Entity para Model
   factory MotelModel.fromEntity(Motel entity) => MotelModel(
         fantasia: entity.fantasia,
         logo: entity.logo,
@@ -58,7 +56,6 @@ class MotelModel {
         suites: entity.suites.map((x) => SuiteModel.fromEntity(x)).toList(),
       );
 
-  // Conversão de Model para Entity
   Motel toEntity() => Motel(
         fantasia: fantasia,
         logo: logo,
@@ -69,4 +66,8 @@ class MotelModel {
         media: media,
         suites: suites.map((x) => x.toEntity()).toList(),
       );
+
+  @override
+  List<Object?> get props =>
+      [fantasia, logo, bairro, distancia, qtdFavoritos, qtdAvaliacoes, media, suites];
 }

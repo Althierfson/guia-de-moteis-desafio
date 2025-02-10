@@ -1,0 +1,98 @@
+{
+    "sucesso": true,
+    "data": {
+      "pagina": 1,
+      "qtdPorPagina": 10,
+      "totalSuites": 0,
+      "totalMoteis": 1,
+      "raio": 0,
+      "maxPaginas": 1,
+      "moteis": [
+        {
+          "fantasia": "Motel Paraíso",
+          "logo": "https://example.com/logo.png",
+          "bairro": "Centro",
+          "distancia": 2.5,
+          "qtdFavoritos": 120,
+          "qtdAvaliacoes": 45,
+          "media": 4.8,
+          "suites": [
+            {
+              "nome": "Suíte Luxo",
+              "qtd": 5,
+              "exibirQtdDisponiveis": true,
+              "fotos": [
+                "https://example.com/suite1-1.jpg",
+                "https://example.com/suite1-2.jpg"
+              ],
+              "itens": [
+                { "nome": "Hidromassagem" },
+                { "nome": "TV 4K" }
+              ],
+              "categoriaItens": [
+                {
+                  "nome": "Lazer",
+                  "icone": "spa_icon"
+                }
+              ],
+              "periodos": [
+                {
+                  "tempoFormatado": "2 horas",
+                  "tempo": "120min",
+                  "valor": 150.00,
+                  "valorTotal": 150.00,
+                  "temCortesia": false,
+                  "desconto": {
+                    "desconto": 10.0
+                  }
+                },
+                {
+                  "tempoFormatado": "Pernoite",
+                  "tempo": "8h",
+                  "valor": 300.00,
+                  "valorTotal": 270.00,
+                  "temCortesia": true,
+                  "desconto": {
+                    "desconto": 10.0
+                  }
+                }
+              ]
+            },
+            {
+              "nome": "Suíte Standard",
+              "qtd": 3,
+              "exibirQtdDisponiveis": false,
+              "fotos": [
+                "https://example.com/suite2-1.jpg",
+                "https://example.com/suite2-2.jpg"
+              ],
+              "itens": [
+                { "nome": "Hidromassagem" }
+              ],
+              "categoriaItens": [
+                {
+                  "nome": "Tecnologia",
+                  "icone": "tv_icon"
+                }
+              ],
+              "periodos": [
+                {
+                  "tempoFormatado": "2 horas",
+                  "tempo": "120min",
+                  "valor": 150.00,
+                  "valorTotal": 150.00,
+                  "temCortesia": false,
+                  "desconto": {
+                    "desconto": 10.0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        
+      ]
+    },
+    "mensagem": []
+  }
+  

@@ -1,18 +1,19 @@
+import 'package:equatable/equatable.dart';
 import 'package:guia_moteis_desafio/modules/moteis/domain/entities/suite.dart';
 import 'package:guia_moteis_desafio/modules/moteis/infra/models/categoria_item_model.dart';
 import 'package:guia_moteis_desafio/modules/moteis/infra/models/item_suite_model.dart';
 import 'package:guia_moteis_desafio/modules/moteis/infra/models/periodo_model.dart';
 
-class SuiteModel {
-  String nome;
-  int qtd;
-  bool exibirQtdDisponiveis;
-  List<String> fotos;
-  List<ItemSuiteModel> itens;
-  List<CategoriaItemModel> categoriaItens;
-  List<PeriodoModel> periodos;
+class SuiteModel extends Equatable {
+  final String nome;
+  final int qtd;
+  final bool exibirQtdDisponiveis;
+  final List<String> fotos;
+  final List<ItemSuiteModel> itens;
+  final List<CategoriaItemModel> categoriaItens;
+  final List<PeriodoModel> periodos;
 
-  SuiteModel({
+  const SuiteModel({
     required this.nome,
     required this.qtd,
     required this.exibirQtdDisponiveis,
@@ -62,4 +63,8 @@ class SuiteModel {
         categoriaItens: categoriaItens.map((x) => x.toEntity()).toList(),
         periodos: periodos.map((x) => x.toEntity()).toList(),
       );
+
+  @override
+  List<Object?> get props =>
+      [nome, qtd, exibirQtdDisponiveis, fotos, itens, categoriaItens, periodos];
 }

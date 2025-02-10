@@ -1,10 +1,11 @@
+import 'package:equatable/equatable.dart';
 import 'package:guia_moteis_desafio/modules/moteis/domain/entities/categoria_item.dart';
 
-class CategoriaItemModel {
-  String nome;
-  String icone;
+class CategoriaItemModel extends Equatable {
+  final String nome;
+  final String icone;
 
-  CategoriaItemModel({
+  const CategoriaItemModel({
     required this.nome,
     required this.icone,
   });
@@ -28,4 +29,7 @@ class CategoriaItemModel {
         nome: nome,
         icone: icone,
       );
+
+  @override
+  List<Object?> get props => [nome, icone];
 }

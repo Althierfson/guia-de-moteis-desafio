@@ -18,3 +18,8 @@ class LocalDatabaseFailure extends Failure {
   @override
   String get message => 'Falha oa se comunica com a base da dados local';
 }
+
+class NoInternetConnection extends Failure {
+  @override
+  String get message => "Você não tem acesso a internt";
+}
