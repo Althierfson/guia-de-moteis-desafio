@@ -43,7 +43,9 @@ void main() {
       act: (bloc) => bloc.add(FetchMoteisEvent()),
       expect: () => [
         LoadingMoteisState(),
-        FetchMoteisSuccessMoteisState(moteis: [MockData.motelMock.toEntity()])
+        FetchMoteisSuccessMoteisState(
+            moteis: [MockData.motelMock.toEntity()],
+            itensFilter: [MockData.itemSuiteMock1.nome, MockData.itemSuiteMock2.nome])
       ],
     );
 
@@ -69,7 +71,9 @@ void main() {
       build: () => bloc,
       act: (bloc) => bloc.add(FetchMoreMoteisEvent()),
       expect: () => [
-        FetchMoteisSuccessMoteisState(moteis: [MockData.motelMock.toEntity()])
+        FetchMoteisSuccessMoteisState(
+            moteis: [MockData.motelMock.toEntity()],
+            itensFilter: [MockData.itemSuiteMock1.nome, MockData.itemSuiteMock2.nome])
       ],
     );
 

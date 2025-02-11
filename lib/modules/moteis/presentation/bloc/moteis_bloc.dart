@@ -9,6 +9,9 @@ part 'moteis_event.dart';
 
 class MoteisBloc extends Bloc<MoteisEvent, MoteisState> {
   final FetchMoteisUsecase fetchMoteisUsecase;
+
+  bool isLoadingMoreItens = false;
+
   MoteisBloc({required this.fetchMoteisUsecase}) : super(LoadingMoteisState()) {
     on<FetchMoteisEvent>((event, emit) async {
       emit(LoadingMoteisState());
@@ -18,13 +21,15 @@ class MoteisBloc extends Bloc<MoteisEvent, MoteisState> {
             emit(FetchMoteisFailureMoteisState(message: failure.message));
           },
           (moteis) async {
-            emit(FetchMoteisSuccessMoteisState(moteis: moteis));
+            List<String> itens = _getItenFromSuite(moteis);
+            emit(FetchMoteisSuccessMoteisState(moteis: moteis, itensFilter: itens));
           },
         );
       });
     });
 
     on<FetchMoreMoteisEvent>((event, emit) async {
+      isLoadingMoreItens = true;
       await fetchMoteisUsecase(unit).then((value) {
         value.fold(
           (failure) async {
@@ -34,11 +39,23 @@ class MoteisBloc extends Bloc<MoteisEvent, MoteisState> {
             if (moteis.isEmpty) {
               emit(FetchMoteisNoMoreItensMoteisState());
             } else {
-              emit(FetchMoteisSuccessMoteisState(moteis: moteis));
+              List<String> itens = _getItenFromSuite(moteis);
+              emit(FetchMoteisSuccessMoteisState(moteis: moteis, itensFilter: itens));
             }
           },
         );
       });
+      isLoadingMoreItens = false;
     });
+  }
+
+  List<String> _getItenFromSuite(List<Motel> moteis) {
+    Set<String> list = {};
+    for (var motel in moteis) {
+      for (var suite in motel.suites) {
+        list.addAll(suite.itens.map((e) => e.nome));
+      }
+    }
+    return list.toList();
   }
 }

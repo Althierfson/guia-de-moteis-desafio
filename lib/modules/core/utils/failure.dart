@@ -21,5 +21,5 @@ class LocalDatabaseFailure extends Failure {
 
 class NoInternetConnection extends Failure {
   @override
-  String get message => "Você não tem acesso a internt";
+  String get message => "Você não tem acesso a internet";
 }

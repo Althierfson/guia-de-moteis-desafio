@@ -36,7 +36,6 @@ class SuiteTile extends StatelessWidget {
               ),
               SizedBox(
                 width: 300,
-                // height: 70,
                 child: Text(
                   suite.nome,
                   style: TextStyle(fontSize: 15),
@@ -83,7 +82,7 @@ class SuiteTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
                 suite.categoriaItens.length > 4 ? 5 : suite.categoriaItens.length + 1, (index) {
-              if (index == 4) {
+              if (index == 4 || index == suite.categoriaItens.length) {
                 return Row(
                   children: [
                     Text(
@@ -165,16 +164,16 @@ class SuiteTile extends StatelessWidget {
                               Row(
                                 children: [
                                   if (suite.periodos[index].desconto != null)
-                                    Text(
-                                      "R\$ ${suite.periodos[index].valor.toString()}",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Color(0xffa19d9d),
-                                          decoration: TextDecoration.lineThrough),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 5),
+                                      child: Text(
+                                        "R\$ ${suite.periodos[index].valor.toString()}",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Color(0xffa19d9d),
+                                            decoration: TextDecoration.lineThrough),
+                                      ),
                                     ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
                                   Text(
                                     "R\$ ${suite.periodos[index].valorTotal.toString()}",
                                     style: TextStyle(fontSize: 16),

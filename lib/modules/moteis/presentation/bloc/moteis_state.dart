@@ -9,8 +9,9 @@ class LoadingMoteisState extends MoteisState {}
 
 class FetchMoteisSuccessMoteisState extends MoteisState {
   final List<Motel> moteis;
+  final List<String> itensFilter;
 
-  FetchMoteisSuccessMoteisState({required this.moteis});
+  FetchMoteisSuccessMoteisState({required this.moteis, required this.itensFilter});
 
   @override
   List<Object?> get props => [moteis];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guia_moteis_desafio/modules/moteis/domain/entities/motel.dart';
+import 'package:guia_moteis_desafio/modules/moteis/presentation/widgets/favorite_icon.dart';
 import 'package:guia_moteis_desafio/modules/moteis/presentation/widgets/suite_tile.dart';
 
 class MotelTile extends StatefulWidget {
@@ -106,10 +107,10 @@ class _MotelTileState extends State<MotelTile> {
                   ],
                 ),
                 const Spacer(),
-                Icon(
-                  Icons.favorite,
-                  size: 30,
-                  color: Colors.grey,
+                SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: FavoriteIcon(),
                 )
               ],
             ),

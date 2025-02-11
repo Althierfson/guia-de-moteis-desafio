@@ -43,7 +43,6 @@ void main() {
 
     test("Deve retornar (throw) uma [Failure] quando o ApiClient falhar", () async {
       // Arrage
-      // Arrange
       String path = "/b/1IXK";
 
       when(() => mockApiClient.get(path)).thenThrow(SocketException("failure"));
@@ -56,6 +55,3 @@ void main() {
     });
   });
 }
-
-// teste no network
-// teste nos block
