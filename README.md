@@ -5,12 +5,16 @@ Este projeto foi desenvolvido como parte do desafio técnico para a empresa **Gu
 
 O desafio consistiu em criar uma réplica da aba **"Ir Agora"** da listagem de motéis do aplicativo **Guia de Motéis GO**, consumindo dados de APIs mock.
 
+## 📽️ Video de apresentação do APP
+
+Assista ao vídeo demonstrativo do app e suas funcionalidades no YouTube: [🔗 Link para o vídeo](https://youtu.be/yn_OFNeleaM)
+
 ## 📷 Capturas de tela
 
 <div align="center">
-  <img src="https://github.com/Althierfson/guia-de-moteis-desafio/blob/main/screenshots/screenshot-2025-02-10_21.59.35.505.png?raw=true", width="250px"/>
-  <img src="https://github.com/Althierfson/guia-de-moteis-desafio/blob/main/screenshots/screenshot-2025-02-10_21.59.47.073.png?raw=true", width="250px"/>
-  <img src="https://github.com/Althierfson/guia-de-moteis-desafio/blob/main/screenshots/screenshot-2025-02-10_22.00.04.34.png?raw=true", width="250px"/>
+  <img src="https://github.com/Althierfson/guia-de-moteis-desafio/blob/main/screenshots/screenshot-2025-02-15_16.01.08.014.png?raw=true", width="250px"/>
+  <img src="https://github.com/Althierfson/guia-de-moteis-desafio/blob/main/screenshots/screenshot-2025-02-15_16.01.18.079.png?raw=true", width="250px"/>
+  <img src="https://github.com/Althierfson/guia-de-moteis-desafio/blob/main/screenshots/screenshot-2025-02-15_16.01.43.102.png?raw=true", width="250px"/>
 </div>
 
 ## 🚀 Tecnologias Utilizadas
@@ -47,7 +51,7 @@ O projeto segue a estrutura baseada em **Dart Clean Architecture**, garantindo o
 ✅ Uso de **Flutter Modular** para modularização do app \
 ✅ Uso de **gerenciamento de estado eficiente (bloc)** \
 ✅ **Testes unitários** cobrindo os principais componentes \
-✅ Código modularizado e seguindo **boas práticas de Flutter** \
+✅ Código modularizado e seguindo **boas práticas de Flutter** 
 
 ## 🧪 Testes
 Foram implementados testes unitários para garantir o funcionamento correto da listagem. A cobertura de testes está em **mais de 80%**.
