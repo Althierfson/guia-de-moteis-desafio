@@ -25,8 +25,9 @@ class PersistentFilterHeader extends SliverPersistentHeaderDelegate {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(
               filterOptions.length,
-              (index) =>
-                  Padding(padding: const EdgeInsets.only(left: 10), child: filterOptions[index])),
+              (index) => Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: GestureDetector(onTap: () {}, child: filterOptions[index]))),
         ),
       ),
     );

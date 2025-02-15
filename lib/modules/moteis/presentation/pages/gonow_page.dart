@@ -21,9 +21,6 @@ class _GonowPageState extends State<GonowPage> {
 
   final ScrollController _scrollController = ScrollController();
 
-  List<String> enderecos = ["Zona sul", "Zona Norte", "Zona Oeste", "Zona Leste"];
-  String? selectEndereco;
-
   Set<Motel> moteis = {};
   Set<String> filterOptions = {};
 
@@ -112,7 +109,7 @@ class _GonowPageState extends State<GonowPage> {
 
               Widget lastItem = Center(
                 child: Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.only(bottom: 60, top: 10),
                   child: CircularProgressIndicator(),
                 ),
               );
@@ -150,23 +147,6 @@ class _GonowPageState extends State<GonowPage> {
                 filterOptions.addAll(state.itensFilter);
               }
 
-              // return Container(
-              //   decoration: BoxDecoration(
-              //       color: const Color(0xfff2f0f0),
-              //       borderRadius: BorderRadius.only(
-              //           topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0))),
-              //   child: ListView.builder(
-              //       controller: _scrollController,
-              //       itemCount: moteis.length + 1,
-              //       itemBuilder: (context, index) {
-              //         if (index == moteis.length) {
-              //           return lastItem;
-              //         }
-
-              //         return MotelTile(motel: moteis.elementAt(index));
-              //       }),
-              // );
-
               return CustomScrollView(
                 controller: _scrollController,
                 slivers: [
@@ -195,16 +175,6 @@ class _GonowPageState extends State<GonowPage> {
                       childCount: moteis.length + 1,
                     ),
                   ),
-                  // ListView.builder(
-                  //     controller: _scrollController,
-                  //     itemCount: moteis.length + 1,
-                  //     itemBuilder: (context, index) {
-                  //       if (index == moteis.length) {
-                  //         return lastItem;
-                  //       }
-
-                  //       return MotelTile(motel: moteis.elementAt(index));
-                  //     }),
                 ],
               );
             },

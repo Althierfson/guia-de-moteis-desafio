@@ -13,6 +13,10 @@ class MoteisHomePage extends StatefulWidget {
 class _MoteisHomePageState extends State<MoteisHomePage> {
   int selectIndex = 0;
 
+  List<Widget> children = [GonowPage(bloc: Modular.get()), Container()];
+
+  final PageController _controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +30,7 @@ class _MoteisHomePageState extends State<MoteisHomePage> {
             )),
         title: ToggleMoteisNowOrOtherDay(
           select: (index) {
-            setState(() {
-              selectIndex = index;
-            });
+            _controller.jumpToPage(index);
           },
         ),
         actions: [
@@ -40,7 +42,36 @@ class _MoteisHomePageState extends State<MoteisHomePage> {
               ))
         ],
       ),
-      body: selectIndex == 0 ? GonowPage(bloc: Modular.get()) : Container(),
+      body: PageView(
+        controller: _controller,
+        physics: NeverScrollableScrollPhysics(),
+        children: children,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: SizedBox(
+        width: 100,
+        height: 35,
+        child: FloatingActionButton(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          onPressed: () {},
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.map_outlined,
+                color: Color(0xffd60b0e),
+              ),
+              Text(
+                "mapa",
+                style: TextStyle(color: Color(0xffd60b0e)),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
